@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{%block title%} Friends {%endblock%}
+{% block content %} 
+ 
+ <h1>Simple Friends Page</h1>
+ <br/>
+
+ <form action = "/friends" METHOD = "POST">
+    <input type="text" placeholder="name" name = "name">
+    <input type ="submit" value = "Add Name" class =" btn btn-secondary">
+
+</form>
+
+<div>
+    <h3>Friends List</h3>
+    <ul>
+        {% for friend in friends%}
+            <li>{{friend.name}} 
+                </br> 
+                <a class = 'btn btn-secondary' href ='/update/{{friend.id}}'>Update</a>
+                <a class = 'btn btn-danger' href ='/delete/{{friend.id}}'>DELETE</a>
+            </li>
+        {%endfor%}
+    </ul>
+</div>
+   
+
+    
+    
+
+ {% endblock %}
